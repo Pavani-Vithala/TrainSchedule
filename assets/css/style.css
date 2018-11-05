@@ -1,0 +1,23 @@
+body{
+    background-color: white;
+}
+.jumbotron{
+    background-color: orangered;
+    text-align: center;
+}
+.card-header{
+background-color: blue;
+}
+.card{
+    border:solid;
+    border-width:2px;
+    border-color:blue;
+}
+.card-body{
+    background-color:white;
+    color:black;
+}
+.train-schedule-head{
+    background-color:white;
+    color:black;
+}
