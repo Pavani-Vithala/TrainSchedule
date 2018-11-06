@@ -4,6 +4,7 @@ body{
 .jumbotron{
     background-color: orangered;
     text-align: center;
+    padding: 10px;
 }
 .card-header{
 background-color: blue;
