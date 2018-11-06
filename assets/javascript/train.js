@@ -8,16 +8,29 @@ $(document).ready(function () {
    
  $("#Submit").on("click", function (event) {
     event.preventDefault();
-     console.log("Entered on click function");
     var trainName = $("#train-name").val().trim();
-    console.log("Train name is " + trainName);
     var destination = $("#train-destination").val().trim();
-    console.log("Train Destination is " + destination);
     var firstTime = $("#train-departure").val().trim();
-    console.log("Train first time is " + firstTime);
     var frequency = $("#train-frequency").val().trim();
-    console.log("Train frequency is " + frequency); 
+    populateTable(trainName,destination,firstTime,frequency);
 
 
   }); 
+function populateTable(trainName,destination,firstTime,frequency)
+{
+    var tName = trainName;
+    var Dest = destination;
+    var startTime = firstTime;
+    var frequency = frequency;
+    var firstTimeConverted = moment(startTime, "HH:mm").subtract(1, "years");
+    var currentTime = moment().format("HH:mm");
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    var tRemainder = diffTime % frequency;
+    var minutesAway = frequency - tRemainder;
+    var arrivalNext = moment().add(minutesAway, "minutes");
+    var nextArrival = moment(arrivalNext).format("HH:mm A");
+    $("#trainTable").append("<tr><td>"+tName+"</td><td>"+Dest+"</td><td>"+frequency+"</td></td><td>"+nextArrival+"</td></td><td>"+minutesAway+"</td></tr>");
+
+}
+
 }); 
