@@ -1,15 +1,18 @@
 
 $(document).ready(function () {
-    //Firebase initialization
+    
 
-    var config = {
-        apiKey: "AIzaSyDLdipiGbu9gj1XtllJ4h-a5cSL2hal1b0",
-        authDomain: "pavani-project-c7d6a.firebaseapp.com",
-        databaseURL: "https://pavani-project-c7d6a.firebaseio.com",
-        storageBucket: "pavani-project-c7d6a.appspot.com"
-    };
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA5Lnb_pvGDpWpw1I2Gw_t2sICp7Ywnqsw",
+    authDomain: "trainschedule-c6f19.firebaseapp.com",
+    databaseURL: "https://trainschedule-c6f19.firebaseio.com",
+    projectId: "trainschedule-c6f19",
+    storageBucket: "trainschedule-c6f19.appspot.com",
+    messagingSenderId: "168248363794"
+  };
+  firebase.initializeApp(config);
 
-    firebase.initializeApp(config);
 
     var database = firebase.database();
 
