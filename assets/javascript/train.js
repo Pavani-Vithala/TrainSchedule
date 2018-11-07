@@ -57,14 +57,11 @@ function clearForm()
        var frequency = snapshot.val().frequency;
        var startTime = snapshot.val().firstTime;
        var firstTimeConverted = moment(startTime, "HH:mm").subtract(1, "years");
-       //var currentTime = moment().format("HH:mm");
        var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
        var tRemainder = diffTime % frequency;
        var minutesAway = frequency - tRemainder;
        var arrivalNext = moment().add(minutesAway, "minutes");
        var nextArrival = moment(arrivalNext).format("HH:mm A");
-       //var nextArrival =  snapshot.val().nextArrival;
-      // var minutesAway = snapshot.val().minutesAway;
        console.log("The train name is " + tName);
        console.log("The Destination is "+dest);
        console.log("The frequency is "+frequency);
