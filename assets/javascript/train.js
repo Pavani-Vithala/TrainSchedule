@@ -21,6 +21,7 @@ $(document).ready(function () {
         $("#currentTime").text(moment().format('hh:mm:ss'));
     }
     setInterval(update, 1000);
+   
     $("#train-name").focus();
 
     //Function called when a new train details are added and Submit is clicked   
@@ -49,7 +50,9 @@ function clearForm()
     $("#train-frequency").val("");
 }
  
- database.ref("TrainData").on('child_added', function(snapshot) {
+ 
+
+    database.ref("TrainData").on('child_added', function(snapshot) {
       console.log("Entered child added function");  
     
        var tName = snapshot.val().trainName;
@@ -57,21 +60,17 @@ function clearForm()
        var frequency = snapshot.val().frequency;
        var startTime = snapshot.val().firstTime;
        var firstTimeConverted = moment(startTime, "HH:mm").subtract(1, "years");
-       var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-       var tRemainder = diffTime % frequency;
-       var minutesAway = frequency - tRemainder;
-       var arrivalNext = moment().add(minutesAway, "minutes");
-       var nextArrival = moment(arrivalNext).format("HH:mm A");
-       console.log("The train name is " + tName);
-       console.log("The Destination is "+dest);
-       console.log("The frequency is "+frequency);
-       console.log("Next Arrival of the train is "+nextArrival);
-       console.log("Minutes Away is "+minutesAway);
-       $("#trainTable").append("<tr><td>"+tName+"</td><td>"+dest+"</td><td>"+frequency+"</td></td><td>"+nextArrival+"</td></td><td>"+minutesAway+"</td></tr>");
-   
-    
+        var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+        var tRemainder = diffTime % frequency;
+        var minutesAway = frequency - tRemainder;
+        var arrivalNext = moment().add(minutesAway, "minutes");
+        var nextArrival = moment(arrivalNext).format("HH:mm A");
+       
+    $("#trainTable").append("<tr class ='tRow'><td>"+tName+"</td><td>"+dest+"</td><td>"+frequency+"</td></td><td>"+nextArrival+"</td></td><td>"+minutesAway+"</td></tr>");
      
+       
 }, function(errorObject) {
     console.log("The read failed: " + errorObject.code);
   }); 
+
 }); 
