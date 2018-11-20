@@ -21,3 +21,9 @@ Future Enhancements
 1. Option to edit the train details in the table
 
 2. option to delete the train information.
+
+The project can be accessed from the linnk below
+
+https://pavani-vithala.github.io/TrainSchedule/
+
+The app is maintained by Pavani Vithala who can be reached on pavani.vithala18@gmail.com
