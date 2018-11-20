@@ -11,6 +11,11 @@ The information displayed for the convenience of the users are as below
 
 Firebase is used to store the data. MomentJS library is used to calculate the next arrival and minutes away.
 
+Challenges Faced
+
+1. Storing data in firebase in the required hirarchy was challenging.But resolved by studying the Firebase documentary.
+2. Calculating the next arrival for trains having the first start time in future was challenging. But was able to resolve by understanding how momentJS works and by adding the required if else conditions.
+
 Future Enhancements
 
 1. Option to edit the train details in the table
